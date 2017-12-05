@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Salas en PSL
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let room of roomsList">
+      <h2>Sala {{room.nombre}}</h2>
+      <button ion-button outline item-end icon-right (click)="viewDetail(room.nombre)">Ver
+        <ion-icon name="eye"></ion-icon>
+      </button>
+      <p><b>{{room.piso}}</b></p>
+      <p>Ocupada: 
+        <font color="red" *ngIf="room.ocupada=='true'">Si</font>
+        <font color="green" *ngIf="room.ocupada=='false'">No</font>
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>
