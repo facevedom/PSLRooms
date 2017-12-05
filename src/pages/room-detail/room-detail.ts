@@ -43,9 +43,13 @@ export class RoomDetailPage {
   }
 
   selectImage() {
-    this.imagePicker.getPictures({maximumImagesCount: 1}).then((results) => {
+    this.imagePicker.getPictures({maximumImagesCount: 1,
+       outputType: 1,
+       width: 500,
+       height: 500,
+       quality: 80}).then((results) => {
       for (var i = 0; i < results.length; i++) {
-        this.room.image = results[i];
+        this.room.Image = results[i];
       }
     }, (err) => { } );
   }

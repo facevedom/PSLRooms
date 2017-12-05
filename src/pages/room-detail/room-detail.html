@@ -15,29 +15,29 @@
 
 <ion-content padding>
   
-  <ion-card>
   
-    <ion-list>
 
-      <ion-item>
-      </ion-item>
+  <ion-list>
 
+    <ion-card>
       <ion-item>
-        <ion-thumbnail item-start>
-          <img src="{{room.image}}" (click)="selectImage()">
+        <ion-thumbnail item-start style="margin-left:10%;margin-top:5%;margin-bottom:5%;width:50%">
+          <img src="data:image/png;base64,{{room.Image}}" (click)="selectImage()" />
         </ion-thumbnail>
 
         <ion-grid>
           <ion-row>
-            <ion-col col-12>{{roomName}}</ion-col>
+            <ion-col col-6>{{roomName}}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
+    </ion-card>
 
+    <ion-card>
       <ion-item>
         <ion-icon name="home" item-start></ion-icon>
         <ion-label stacked>Nombre</ion-label>
-        <ion-input [(ngModel)]="roomName" type="text"></ion-input>
+        <ion-input [(ngModel)]="roomName" type="text" readonly></ion-input>
       </ion-item>
 
       <ion-item>
@@ -45,7 +45,7 @@
         <ion-label stacked>Asientos</ion-label>
         <ion-input [(ngModel)]="room.Asientos" type="number"></ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-icon name="pin" item-start></ion-icon>
         <ion-label stacked>Ubicación</ion-label>
@@ -55,7 +55,7 @@
           <ion-option *ngFor="let floor of floors" value="{{floor.name}}">{{floor.name}}</ion-option>
         </ion-select>
       </ion-item>
-  
+
       <ion-item>
         <ion-icon name="lock" item-start></ion-icon>
         <ion-label>Ocupada</ion-label>
@@ -68,16 +68,10 @@
         <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="room.Limpieza"></ion-datetime>
         <br><br><br><br>
       </ion-item>
-
-      <ion-item>
-          <button ion-button medium outline block color="danger" icon-start (click)="cancel()"><ion-icon name="close"></ion-icon>Deshacer cambios</button>
-      </ion-item>
-
-      <ion-item>
-          <button ion-button medium block color="primary" icon-start (click)="updateRoom()"><ion-icon name="checkmark"> </ion-icon>Guardar</button>
-      </ion-item>
+    </ion-card>
+  </ion-list>
   
-    </ion-list>
-  </ion-card>
+  <button ion-button medium outline block color="danger" icon-start (click)="cancel()"><ion-icon name="close"></ion-icon>Deshacer cambios</button>
+  <button ion-button medium block color="primary" icon-start (click)="updateRoom()"><ion-icon name="checkmark"> </ion-icon>Guardar</button>
 
 </ion-content>
