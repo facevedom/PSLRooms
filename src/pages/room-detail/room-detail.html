@@ -20,6 +20,9 @@
     <ion-list>
 
       <ion-item>
+      </ion-item>
+
+      <ion-item>
         <ion-thumbnail item-start>
           <img src="{{room.image}}" (click)="selectImage()">
         </ion-thumbnail>
@@ -65,13 +68,16 @@
         <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="room.Limpieza"></ion-datetime>
         <br><br><br><br>
       </ion-item>
+
+      <ion-item>
+          <button ion-button medium outline block color="danger" icon-start (click)="cancel()"><ion-icon name="close"></ion-icon>Deshacer cambios</button>
+      </ion-item>
+
+      <ion-item>
+          <button ion-button medium block color="primary" icon-start (click)="updateRoom()"><ion-icon name="checkmark"> </ion-icon>Guardar</button>
+      </ion-item>
   
     </ion-list>
   </ion-card>
-
-  <p>
-    <button ion-button outline style="width:49%" no-margin icon-start (click)="cancel()"><ion-icon name="close"></ion-icon>Deshacer cambios</button>
-    <button ion-button style="width:49%" no-margin icon-start (click)="updateRoom()"><ion-icon name="checkmark"> </ion-icon>Guardar</button>
-  </p>
 
 </ion-content>

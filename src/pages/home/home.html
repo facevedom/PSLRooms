@@ -15,8 +15,8 @@
       </button>
       <p><b>{{room.piso}}</b></p>
       <p>Ocupada: 
-        <font color="red" *ngIf="room.ocupada=='true'">Si</font>
-        <font color="green" *ngIf="room.ocupada=='false'">No</font>
+        <font color="red" *ngIf="room.ocupada">Si</font>
+        <font color="green" *ngIf="!room.ocupada">No</font>
       </p>
     </ion-item>
   </ion-list>
