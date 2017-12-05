@@ -20,7 +20,8 @@ export class AddRoomPage {
   floors: any = [];
   roomName: string = '';
   room: any = {
-    
+    Asientos: ""
+
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
