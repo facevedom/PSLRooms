@@ -20,15 +20,33 @@ export class AddRoomPage {
   floors: any = [];
   roomName: string = '';
   room: any = {
-    Asientos: ""
-
+    Asientos: "",
+    Piso: "",
+    Ocupada: "",
+    Limpieza: ""
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public roomProvider: RoomHandlerProvider,
+    public alert: AlertController,
+    public imagePicker: ImagePicker) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddRoomPage');
+    this.roomProvider.getFloors().then(res => {
+      this.floors = res;
+    });
+  }
+
+  cancel() {
+    this.ionViewDidLoad();
+  }
+
+  saveRoom() {
+    this.roomProvider.updateRoom(this.room, this.roomName).then(data => {
+      this.navCtrl.pop();
+    });
   }
 
 }

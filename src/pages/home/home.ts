@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { RoomHandlerProvider } from '../../providers/room-handler/room-handler';
 import { RoomDetailPage } from '../room-detail/room-detail';
+import { AddRoomPage } from '../add-room/add-room';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
     public loadingCtrl: LoadingController,
-    public roomHandler: RoomHandlerProvider) {
+    public roomHandler: RoomHandlerProvider,
+    public alert: AlertController) {
   }
 
   viewDetail(name) {
@@ -39,10 +41,18 @@ export class HomePage {
           })
         }
         
-        loader.dismiss();
-        });
+      loader.dismiss();
       });
-    }
+    });
+  }
+
+  deleteRoom() {
+    
+  }
+
+  createRoom() {
+    this.navCtrl.push(AddRoomPage);
+  }
 
   ionViewWillEnter() {
     this.fetchRooms();

@@ -35,12 +35,6 @@
 
     <ion-card>
       <ion-item>
-        <ion-icon name="home" item-start></ion-icon>
-        <ion-label stacked>Nombre</ion-label>
-        <ion-input [(ngModel)]="roomName" type="text" readonly></ion-input>
-      </ion-item>
-
-      <ion-item>
         <ion-icon name="people" item-start></ion-icon>
         <ion-label stacked>Asientos</ion-label>
         <ion-input [(ngModel)]="room.Asientos" type="number"></ion-input>
@@ -49,7 +43,6 @@
       <ion-item>
         <ion-icon name="pin" item-start></ion-icon>
         <ion-label stacked>Ubicación</ion-label>
-
         <ion-select [(ngModel)]="room.Piso">
           <ion-option value="">-- Selecciona --</ion-option>
           <ion-option *ngFor="let floor of floors" value="{{floor.name}}">{{floor.name}}</ion-option>
@@ -71,7 +64,8 @@
     </ion-card>
   </ion-list>
   
-  <button ion-button medium outline block color="danger" icon-start (click)="cancel()"><ion-icon name="close"></ion-icon>Deshacer cambios</button>
   <button ion-button medium block color="primary" icon-start (click)="updateRoom()"><ion-icon name="checkmark"> </ion-icon>Guardar</button>
+  <br>
+  <button ion-button medium outline block color="danger" icon-start (click)="cancel()"><ion-icon name="close"></ion-icon>Deshacer cambios</button>
 
 </ion-content>

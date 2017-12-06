@@ -9,12 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { RoomDetailPage } from '../pages/room-detail/room-detail';
 import { RoomHandlerProvider } from '../providers/room-handler/room-handler';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { AddRoomPage } from '../pages/add-room/add-room';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    RoomDetailPage
+    RoomDetailPage,
+    AddRoomPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
   entryComponents: [
     MyApp,
     HomePage,
-    RoomDetailPage
+    RoomDetailPage,
+    AddRoomPage
   ],
   providers: [
     StatusBar,
