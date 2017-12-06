@@ -12,20 +12,23 @@
 </ion-header>
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let room of roomsList">
-      <h2>Sala {{room.nombre}}</h2>
-      <button ion-button outline item-end icon-right (click)="viewDetail(room.nombre)">Ver
-        <ion-icon name="eye"></ion-icon>
-      </button>
-      <p>Ocupada: 
-        <font color="red" *ngIf="room.ocupada">Si</font>
-        <font color="green" *ngIf="!room.ocupada">No</font>
-      </p>
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteRoom(room.name)">
-          <ion-icon class="delete-icon" name="trash"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item>
+      <ion-item-sliding *ngFor="let room of roomsList">
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="data:image/png;base64,{{room.imagen}}">
+              </ion-avatar>
+            <h2>Sala {{room.nombre}}</h2>
+            <button ion-button outline item-end icon-right (click)="viewDetail(room.nombre)">Ver
+              <ion-icon name="eye"></ion-icon>
+            </button>
+            <p>Ocupada: 
+              <font color="red" *ngIf="room.ocupada">Si</font>
+              <font color="green" *ngIf="!room.ocupada">No</font>
+            </p>      
+        </ion-item>    
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteRoom(room.nombre)"><ion-icon class="delete-icon" name="trash"></ion-icon>Borrar</button>
+        </ion-item-options>
+      </ion-item-sliding>
   </ion-list>
 </ion-content>

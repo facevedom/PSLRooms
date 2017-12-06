@@ -37,7 +37,8 @@ export class HomePage {
             piso: this.rooms[key].Piso,
             asientos: this.rooms[key].Asientos,
             ocupada: this.rooms[key].Ocupada, 
-            limpieza: this.rooms[key].Limpieza
+            limpieza: this.rooms[key].Limpieza,
+            imagen: this.rooms[key].Image
           })
         }
         
@@ -46,8 +47,23 @@ export class HomePage {
     });
   }
 
-  deleteRoom() {
-    
+  deleteRoom(name) {
+    let alert = this.alert.create({
+      title: 'Eliminar sala',
+      message: `¿Seguro que desea eliminar la sala ${name}?`,
+      buttons: [{
+        text: "Aceptar",
+        handler: () => {
+          this.roomHandler.deleteRoom(name).then(data => {
+            this.fetchRooms();
+          });
+        }
+      }, {
+        text: "Cancelar",
+        role: 'cancel'
+      }]
+    })
+    alert.present();
   }
 
   createRoom() {
